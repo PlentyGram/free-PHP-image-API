@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $img_url = '';
     $data = file_get_contents($search_url);
     if($data){
-        preg_match("/vqd='(.*?)'/", $data, $matches);
+        preg_match('/vqd="(.*?)"/', $data, $matches);
         $vqd = $matches[1];
         $img_search_url = "https://duckduckgo.com/i.js?l=wt-wt&o=json&q=" . urlencode($keyword) . "&vqd=" . $vqd . "&f=,,,,,&p=1";
         $img_data = file_get_contents($img_search_url);
